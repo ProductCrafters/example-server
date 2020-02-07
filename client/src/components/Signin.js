@@ -3,11 +3,11 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { Form, Button } from 'react-bootstrap'
 
-import { required, email, minLength5 } from '../utils/validators'
+import { required, minLength5 } from '../utils/validators'
 import { fetchUser } from '../redux/actions/userActions'
 import { login } from '../api/user'
 
-import OwnInput from './OwnInput'
+import OwnInput from "./OwnInput";
 
 const SimpleForm = ({ handleSubmit, pristine, submitting, fetchUser, userData, history }) => {
   const sendToServer = ({ username, password }) => {
@@ -48,19 +48,23 @@ const SimpleForm = ({ handleSubmit, pristine, submitting, fetchUser, userData, h
       </Form.Group>
 
       <div>
-        <Button variant={pristine ? 'danger' : 'success'} type="submit" disabled={submitting}>
+        <Button
+          variant={pristine ? "danger" : "success"}
+          type="submit"
+          disabled={submitting}
+        >
           Submit
         </Button>
       </div>
     </Form>
-  )
-}
+  );
+};
 
 const LoginForm = reduxForm({
   form: 'simple', // a unique identifier for this form
   initialValues: {
-    username: 'external',
-    password: 'external ',
+    username: 'vvvvv',
+    password: 'vvvvv',
   },
 })(SimpleForm)
 

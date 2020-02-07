@@ -21,15 +21,17 @@ export const request = ({ url, method = 'get', data = {} }) => {
     })
 }
 
-export const login = ({ username, password }) => {
+export const newExpense = ({ amount, category, date }) => {
   return request({
-    url: '/login',
+    url: '/expenses/create',
     method: 'post',
-    data: { username, password },
+    data: { amount, category, date },
   })
 }
 
-export const getProtected = () => {
-  return request({ url: '/api/profile', method: 'get' })
+export const getExpense = () => {
+  return request({
+    url: '/expenses/',
+    method: 'get',
+  })
 }
-
