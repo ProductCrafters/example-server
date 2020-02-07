@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 
-import { login, getProtected } from './api/user'
+import { login /*, getProtected*/ } from './api/user'
 
 export default class Login extends React.Component {
   render() {
@@ -32,7 +32,8 @@ export default class Login extends React.Component {
           login({ username: email, password })
             .then(({ user, token }) => {
               localStorage.setItem('token', token)
-              history.push("/home")
+              localStorage.setItem('user', user)
+              history.push('/home')
             })
             .finally((e) => {})
         }}
